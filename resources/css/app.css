@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.background-image 
+{
+    background-image: url(https://static2.srcdn.com/wordpress/wp-content/uploads/2020/09/demon-slayer-anime-wisteria-flowers.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 640px;
+}
