@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anime;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class AnimeController extends Controller
@@ -14,8 +15,9 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        return view('anime.index')->with('animes', Anime::orderBy('title', 'DESC')->get());
+        return view('anime.index')->with('animes', Anime::orderBy('title', 'DESC')->get());               
     }
+    
 
      /**
      * Display the specified resource.

@@ -18,4 +18,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(Manga::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

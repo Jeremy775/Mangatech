@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\AnimeController;
-use App\Http\Controllers\CommentAnimeController;
-use App\Http\Controllers\CommentMangaController;
-use App\Http\Controllers\MangaController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\MangaController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\AnimeTagController;
+use App\Http\Controllers\MangaTagController;
+use App\Http\Controllers\CommentAnimeController;
+use App\Http\Controllers\CommentMangaController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,13 +41,17 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User', 'middl
 
 // --------------------------------  Anime -------------------------------------------//
 Route::resource('anime', AnimeController::class);
+Route::get('/anime/tags/{tag}', [AnimeTagController::class, 'index']);
 
 // --------------------------------  Manga -------------------------------------------//
 Route::resource('manga', MangaController::class);
+Route::get('/manga/tags/{tag}', [MangaTagController::class, 'index']);
 
 // --------------------------------  Comments -------------------------------------------//
 Route::resource('comment', CommentAnimeController::class)->except('store');
 route::post('anime/{anime}/comment', [CommentAnimeController::class, 'store'])->name('anime.comment.store');
 route::post('manga/{manga}/comment', [CommentMangaController::class, 'store'])->name('manga.comment.store');
+
+
 
 

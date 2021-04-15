@@ -9,14 +9,30 @@
         <img class="h-80" src="{{ $anime->image }}">
     </div>
     <div class="w-4/5 m-auto text-left">
-        <div class="py-15">
-            <h1 class="text-6xl pb-10">
+
+        <div class="py-8">
+            <h1 class="text-6xl pb-6">
                 {{ $anime->title }}
             </h1>
-            <span class="text-gray-500">
+
+            <span class="text-gray-500 pl-2">
                 on {{ date('jS M Y', strtotime($anime->updated_at)) }}.
             </span>
         </div>
+
+        <div>
+            @if (count($anime->tags))
+                <span>
+                    @foreach ($anime->tags as $tag)
+                        <a href="/anime/tags/{{ $tag->name }}"
+                        class="border border-blue-500 text-blue-700 font-bold py-1 px-2 rounded-3xl ml-2">
+                        {{ $tag->name }}
+                        </a>
+                    @endforeach
+                </span>
+            @endif
+        </div>
+        
     </div>
 </div>
 

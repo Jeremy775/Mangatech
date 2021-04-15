@@ -13,3 +13,12 @@
     background-size: cover;
     height: 640px;
 }
+
+#show-bg
+{
+    background-image: url("https://theglobalcoverage.com/wp-content/uploads/2021/03/%E2%80%98Tales-Of-Demons-and-Gods-Chapter-257-Updates-and-New-Details.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

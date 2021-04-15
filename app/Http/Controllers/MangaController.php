@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manga;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MangaController extends Controller
 {
@@ -14,7 +15,15 @@ class MangaController extends Controller
      */
     public function index()
     {
-        return view('manga.index')->with('mangas', Manga::orderBy('title', 'DESC')->get());
+        $search = request()->query('search');
+
+        if ($search) {
+            $mangas = Manga::where('title', 'LIKE', "%{$search}%")->simplePaginate(10);
+        } else {
+            $mangas = Manga::paginate(5);
+        }
+
+        return view('manga.index', ['mangas' => $mangas ]);
     }
 
      /**

@@ -2,16 +2,30 @@
 
 @section('content')
 
-<div class="w-4/5 m-auto text-center">
-    <div class="py-15 border-b border-gray-200">
-        <h1 class="text-6xl">
-            Animes
-        </h1>
-    </div>
-</div>
+    <div class="w-4/5 m-auto text-center">
+        <div class="pt-10">
+            <h1 class="text-6xl">
+                Animes
+            </h1>
+        </div>
 
+        <div class="py-15 border-b border-gray-200">
+            <a href="{{ route('anime.index') }}"
+                class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
+                    All
+                </a>
+                
+            @foreach ($tags as $tag )
+                <a href="/anime/tags/{{ $tag}}"
+                class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
+                    {{ $tag }}
+                </a>
+            @endforeach
+        </div>
+    </div>
 
 @foreach ($animes as $anime)
+
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
         <div class="flex justify-end">
             <img class="h-80" src="{{ $anime->image }}">
@@ -32,6 +46,7 @@
             <a href="{{ route('anime.show', $anime->slug) }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Lire la suite</a>
         </div>
     </div>
+
 @endforeach
 
 
