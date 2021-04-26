@@ -18,5 +18,13 @@ class Manga extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function favorite_to_user()
+    {
+        // dump('favorite_to_user');
+        return $this->belongsToMany(User::class);
+    }
+
+   
     
 }

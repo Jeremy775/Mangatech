@@ -20,7 +20,7 @@ class MangaController extends Controller
         if ($search) {
             $mangas = Manga::where('title', 'LIKE', "%{$search}%")->simplePaginate(10);
         } else {
-            $mangas = Manga::paginate(5);
+            $mangas = Manga::paginate(3);
         }
 
         return view('manga.index', ['mangas' => $mangas ]);

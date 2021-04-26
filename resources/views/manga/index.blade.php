@@ -59,6 +59,49 @@
             </p>
 
             <a href="{{ route('manga.show', $manga->slug) }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Lire la suite</a>
+            <div class="wishlist py-15">
+
+                @guest
+
+                    <a class="hover:text-blue-500"
+                    href="javascript:void(0);" 
+                    onclick="toastr.info('Login to add to favs !', 'Info', 
+                    {closeButton: true, progressBar: true,})">
+                    <i class="fas fa-heart text-3xl"></i>{{ $manga->favorite_to_user->count() }}
+                    </a>
+
+                @else
+                    <style>.favorite_manga{color:blue;}.planning_manga{color:blue;}</style>
+
+                    <a class="hover:text-blue-500 
+                    {{ !Auth::user()->favorite_manga->where('pivot.manga_id',$manga->id)->count()  == 0 ? 'favorite_manga' : ''}}"
+                    href="javascript:void(0);" 
+                    onclick="document.getElementById('favorite-form-{{ $manga->id }}').submit();">
+                    <i class="fas fa-heart text-3xl"></i> {{ $manga->favorite_to_user->count() }}
+                    </a>
+
+                    <form id="favorite-form-{{ $manga->id }}" method="POST" 
+                    action="{{ route('manga.fav', $manga->id) }}" style="display: none;">
+                    @csrf
+                    </form>
+
+                    
+
+                    <a class="hover:text-blue-500
+                    {{ !Auth::user()->planning_manga->where('pivot.manga_id',$manga->id)->count()  == 0 ? 'planning_manga' : ''}}"
+                    href="javascript:void(0);" 
+                    onclick="document.getElementById('planning-form-{{ $manga->id }}').submit();">
+                    <i class="far fa-clock text-3xl pl-3"></i> {{ $manga->planning_to_user }}
+                    </a>
+
+                    <form id="planning-form-{{ $manga->id }}" method="POST" 
+                    action="{{ route('manga.planning', $manga->id) }}" style="display: none;">
+                     @csrf
+                    </form>
+
+                @endguest
+                
+            </div>
         </div>
     </div>
 @empty

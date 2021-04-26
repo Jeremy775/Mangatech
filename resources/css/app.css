@@ -22,3 +22,7 @@
     background-attachment: fixed;
     background-size: cover;
 }
+
+.animes-btn:hover {
+    color: red;
+}

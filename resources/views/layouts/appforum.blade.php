@@ -27,7 +27,6 @@
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                         <a class="no-underline hover:underline" href="{{ route('manga.index') }}">{{ __('Mangas') }}</a>
                         <a class="no-underline hover:underline" href="{{ route('anime.index') }}">{{ __('Animes') }}</a>
-                        <a class="no-underline hover:underline" href="{{ route('discussion.index') }}">{{ __('Forum') }}</a>
                     @guest  
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
@@ -47,13 +46,50 @@
                 </nav>
             </div>
         </header>
-        <main>
-            @yield('content')
+        <main class="py-4">
+                <!-- Sidebar -->
+                
+                <div class="flex flex-row">
+                    <div class="bg-blue-500 rounded">
+                        <ul>
+                            @foreach ($channels as $channel )
+                            <li class="mr-3 flex-1">
+                                <a href="#" 
+                                class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-gray-800 md:border-gray-900 hover:border-gray-300">
+                                <span class="pb-1 text-lg md:pb-0 text-gray-100 block md:inline-block">
+                                    {{ $channel->name }}
+                                </span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    {{-- <!--Sidebar-->
+                    <div class="w-full md:w-1/6 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
+                        <div class="md:relative mx-auto lg:float-right lg:px-6">
+                        <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
+                            @foreach ($channels as $channel )
+                            <li class="mr-3 flex-1">
+                                <a href="#" 
+                                class="block py-1 md:py-3 pl-1 align-middle border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+                                <span class="pb-1 md:pb-0 text-lg md:text-base text-blue-400 md:text-blue-400 block md:inline-block">
+                                    {{ $channel->name }}
+                                </span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        </div>
+                    </div> --}}
+                  
+                    <div class="w-full lg:my-10 lg:px-10">
+                      <!-- Column Content --> 
+                      @yield('content')
+                    </div>
+                  
+                </div>
+                
         </main>
-        
-        <footer>
-            @include('layouts.footer')
-        </footer>
     </div>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>

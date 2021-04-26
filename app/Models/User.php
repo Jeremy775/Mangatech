@@ -47,4 +47,21 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function favorite_manga()
+    {
+        // dump('favorite_manga');
+        return $this->belongsToMany(Manga::class);
+    }
+
+    public function planning_manga()
+    {
+        // dump('planning_manga');
+        return $this->belongsToMany(Manga::class, 'manga_user_planning');
+    }
+
+    public function discussions()
+    {
+        return $this->hasMany(Discussion::class);
+    }
 }

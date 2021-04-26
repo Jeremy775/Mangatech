@@ -23,7 +23,7 @@
 			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
 				<!--Title-->
 					<p class="text-black font-extrabold text-3xl md:text-5xl">
-						 {{ Auth::user()->name }}
+						 Favorites Mangas
 					</p>			
 			</div>
 		</div>
@@ -68,43 +68,17 @@
                         <section class="overflow-hidden text-gray-700 body-font">
                             <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
                                 <div class="flex flex-wrap -m-1 md:-m-2">
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
+                                    
+                                    @foreach ($mangas as $manga)
+                                        
+                                        <div class="flex flex-wrap w-1/3">
+                                            <div class="w-full p-1 md:p-2">
+                                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+                                                    src="{{ $manga->image }}">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                </div>
+
+                                    @endforeach
                         </section>
                                                                         
 					</div>
