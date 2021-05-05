@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Anime;
 
+use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 

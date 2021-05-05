@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manga;
 
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,6 @@ class FavoriteController extends Controller
 
     public function add($manga)
     {
-        // dump($manga);
         $user = Auth::user();
         $isFavorite = $user->favorite_manga()->where('manga_id',$manga)->count();
         

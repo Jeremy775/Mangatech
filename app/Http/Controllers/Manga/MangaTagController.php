@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manga;
 
+use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use App\Models\Manga;
 

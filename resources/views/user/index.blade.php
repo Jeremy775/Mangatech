@@ -18,104 +18,47 @@
 </head>
 <body class="bg-gray-200 font-sans leading-normal tracking-normal">
 
-	<!--Header-->
-	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url(); height: 60vh; max-height:460px;">
-			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-				<!--Title-->
-					<p class="text-black font-extrabold text-3xl md:text-5xl">
-						 {{ Auth::user()->name }}
-					</p>			
-			</div>
-		</div>
+	
+	<!--Title-->
+	<h1 class="text-black font-extrabold text-3xl text-center pt-10 md:text-5xl py-15 border-b border-gray-300">
+		{{ Auth::user()->name }}'s profile
+    </h1>			
+
 		
-		<!--Container-->
-		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
-			
-			<div class="mx-0 sm:mx-6">
-				
-				<!--Nav-->
-				<nav class="mt-0 w-full">
-					<div class="container mx-auto flex items-center">
-						
-						<div class="flex w-1/2 pl-4 text-sm">
-							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-								<li class="mr-2">
-								<a class="inline-block py-2 px-2 text-gray-600 no-underline hover:underline" href="{{ route('favorite.index') }}">Favorites</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="#">Anime list</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="{{ route('planning.index') }}">Manga list</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="post_vue.html">Overview</a>
-								</li>
-							</ul>
-						</div>
+    <section class="text-gray-700 ">
+        <div class="container px-8 pt-28 pb-10 mx-auto lg:px-4">
+            <div class="flex flex-wrap text-left">
+                            
+                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.index') }}">
+                    <div
+                        class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
+                        <i class="fas fa-book text-6xl"></i>
+                    </div>
+                    <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">My Mangas</h2>
+                                
+                </a>
 
+                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.index') }}">
+                    <div
+                        class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
+                        <i class="fab fa-buysellads text-6xl"></i>
+                    </div>
+                    <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">My Animes</h2>
+                </a>
 
-					</div>
-				</nav>
+                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('favorite.index') }}">
+                    <div
+                        class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
+                        <i class="fas fa-heart text-6xl"></i>
+                    </div>
+                    <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">Favorites</h2>  
+                </a>
 
-				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-					
-				<!--Lead Card-->
-				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-							
-					<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-								                
-                        <section class="overflow-hidden text-gray-700 body-font">
-                            <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-                                <div class="flex flex-wrap -m-1 md:-m-2">
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap w-1/3">
-                                        <div class="w-full p-1 md:p-2">
-                                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                                        </div>
-                                    </div>
-                                </div>
-                        </section>
-                                                                        
-					</div>
+            </div>
+        </div>
+    </section>
+                        
 	
-				</div>
-				
-			</div>
-						
-		</div>
-	
-	</div>
 
 
 	<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>

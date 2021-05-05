@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Brian2694\Toastr\Facades\Toastr;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -45,7 +46,8 @@ class LoginController extends Controller
     {
         if ( Auth::user()->role->id ==1 ) {
             
-            return redirect()->route('admin.dashboard');
+            //redirect to admin page when logged in
+            return redirect()->route('admin.users.index')->with(['users' => User::paginate(10)]);
         } else {
             
             Toastr::info("Hello", 'Logged in');

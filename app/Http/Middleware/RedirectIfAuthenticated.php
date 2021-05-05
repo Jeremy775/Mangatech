@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 if (Auth::user()->role->id == 1) { 
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('admin.users.index'); //Redirect to admin dashboard from navbar auth link
                 } 
                 return redirect(RouteServiceProvider::HOME);
             }

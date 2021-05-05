@@ -44,6 +44,6 @@ class AppServiceProvider extends ServiceProvider
         
         // forum variables can be called on all pages
         View::share('channels', Channel::all());
-        View::share('discussions', Discussion::all());
+        View::share('discussions', Discussion::filterByChannels()->get());
     }
 }

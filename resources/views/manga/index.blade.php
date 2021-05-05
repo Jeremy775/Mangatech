@@ -71,7 +71,7 @@
                     </a>
 
                 @else
-                    <style>.favorite_manga{color:blue;}.planning_manga{color:blue;}</style>
+                    <style>.favorite_manga{color:blue;}.planning_manga{color:blue;}.readed_manga{color:blue;}</style>
 
                     <a class="hover:text-blue-500 
                     {{ !Auth::user()->favorite_manga->where('pivot.manga_id',$manga->id)->count()  == 0 ? 'favorite_manga' : ''}}"
@@ -91,11 +91,24 @@
                     {{ !Auth::user()->planning_manga->where('pivot.manga_id',$manga->id)->count()  == 0 ? 'planning_manga' : ''}}"
                     href="javascript:void(0);" 
                     onclick="document.getElementById('planning-form-{{ $manga->id }}').submit();">
-                    <i class="far fa-clock text-3xl pl-3"></i> {{ $manga->planning_to_user }}
+                    <i class="far fa-clock text-3xl pl-3"></i> 
                     </a>
 
                     <form id="planning-form-{{ $manga->id }}" method="POST" 
                     action="{{ route('manga.planning', $manga->id) }}" style="display: none;">
+                     @csrf
+                    </form>
+
+
+                    <a class="hover:text-blue-500
+                    {{ !Auth::user()->readed_manga->where('pivot.manga_id',$manga->id)->count()  == 0 ? 'readed_manga' : ''}}"
+                    href="javascript:void(0);" 
+                    onclick="document.getElementById('readed-form-{{ $manga->id }}').submit();">
+                    <i class="fas fa-check text-3xl pl-3"></i> 
+                    </a>
+
+                    <form id="readed-form-{{ $manga->id }}" method="POST" 
+                    action="{{ route('manga.readed', $manga->id) }}" style="display: none;">
                      @csrf
                     </form>
 

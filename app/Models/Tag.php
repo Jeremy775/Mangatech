@@ -9,6 +9,14 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug'
+    ];
+
+    public $timestamps = false;
+
+
     public function anime()
     {
         return $this->belongsToMany(Anime::class);

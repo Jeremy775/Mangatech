@@ -23,7 +23,7 @@
 			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
 				<!--Title-->
 					<p class="text-black font-extrabold text-3xl md:text-5xl">
-						 Planning Mangas
+						Planning Mangas
 					</p>			
 			</div>
 		</div>
@@ -33,33 +33,10 @@
 			
 			<div class="mx-0 sm:mx-6">
 				
-				<!--Nav-->
-				<nav class="mt-0 w-full">
-					<div class="container mx-auto flex items-center">
-						
-						<div class="flex w-1/2 pl-4 text-sm">
-							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-								<li class="mr-2">
-								<a class="inline-block py-2 px-2 text-gray-600 no-underline hover:underline" href="{{ route('favorite.index') }}">Favorites</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="#">Anime list</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="{{ route('planning.index') }}">Manga list</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="post_vue.html">Overview</a>
-								</li>
-							</ul>
-						</div>
-
-
-					</div>
-				</nav>
+				@include('partial.header-user-list')
 
 				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-					<h1 class="text-center">Planning to watch</h1>
+					<h1 class="text-center">Planning to read</h1>
 					<!--Lead Card-->
 					<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
 								
@@ -75,11 +52,12 @@
 												<div class="w-full p-1 md:p-2">
 													<img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
 														src="{{ $manga->image }}">
+														<p class="text-center">{{ $manga->title }}</p>
 												</div>
 											</div>
 
 										@endforeach
-										
+
 									</div>
 								</div>			
 							</section>
@@ -90,7 +68,7 @@
 				</div>
 
 				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-					<h1 class="text-center">Watched</h1>
+					<h1 class="text-center">Readed</h1>
 					<!--Lead Card-->
 					<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
 								
@@ -100,16 +78,17 @@
 								<div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
 									<div class="flex flex-wrap -m-1 md:-m-2">
 										
-										{{-- @foreach ($mangas as $manga)
+										@foreach ($readed as $read)
 											
 											<div class="flex flex-wrap w-1/3">
 												<div class="w-full p-1 md:p-2">
 													<img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-														src="{{ $manga->image }}">
+														src="{{ $read->image }}">
+													<p>{{ $read->title }}</p>
 												</div>
 											</div>
 
-										@endforeach --}}
+										@endforeach
 
 									</div>
 								</div>			

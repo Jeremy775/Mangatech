@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -43,6 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //Set the password to be crypted
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -50,18 +57,26 @@ class User extends Authenticatable
 
     public function favorite_manga()
     {
-        // dump('favorite_manga');
         return $this->belongsToMany(Manga::class);
     }
 
     public function planning_manga()
     {
-        // dump('planning_manga');
         return $this->belongsToMany(Manga::class, 'manga_user_planning');
+    }
+
+    public function readed_manga()
+    {
+        return $this->belongsToMany(Manga::class, 'manga_user_readed');
     }
 
     public function discussions()
     {
         return $this->hasMany(Discussion::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }

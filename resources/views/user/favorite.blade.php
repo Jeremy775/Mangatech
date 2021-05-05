@@ -33,30 +33,7 @@
 			
 			<div class="mx-0 sm:mx-6">
 				
-				<!--Nav-->
-				<nav class="mt-0 w-full">
-					<div class="container mx-auto flex items-center">
-						
-						<div class="flex w-1/2 pl-4 text-sm">
-							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-								<li class="mr-2">
-								<a class="inline-block py-2 px-2 text-gray-600 no-underline hover:underline" href="{{ route('favorite.index') }}">Favorites</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="#">Anime list</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="{{ route('planning.index') }}">Manga list</a>
-								</li>
-								<li class="mr-2">
-								<a class="inline-block text-gray-600 no-underline hover:underline py-2 px-2" href="post_vue.html">Overview</a>
-								</li>
-							</ul>
-						</div>
-
-
-					</div>
-				</nav>
+				@include('partial.header-user-list')
 
 				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
 					

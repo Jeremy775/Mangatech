@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manga;
 
+use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;

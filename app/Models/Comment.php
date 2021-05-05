@@ -15,16 +15,19 @@ class Comment extends Model
         'comment'
     ];
 
+    //Many To One relation
     public function animes()
     {
         return $this->belongsTo(Anime::class);
     }
 
+    //Many To One relation
     public function mangas()
     {
         return $this->belongsTo(Manga::class);
     }
 
+    //Many To One relation
     public function user()
     {
         return $this->belongsTo(User::class);

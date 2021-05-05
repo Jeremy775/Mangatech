@@ -1,21 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Forum;
 
-use App\Http\Requests\CreateDiscussionRequest;
-use App\Models\Discussion;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
-use Illuminate\Support\Str;
 
-
-class DiscussionController extends Controller
+class ForumController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->only(['create', 'store']);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +24,7 @@ class DiscussionController extends Controller
      */
     public function create()
     {
-        return view('forum.discussion.create');
+        //
     }
 
     /**
@@ -42,18 +33,9 @@ class DiscussionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateDiscussionRequest $request)
+    public function store(Request $request)
     {
-        $post = auth()->user()->discussions()->create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'slug' => snake_case($request->title),
-            'channel_id' => $request->channel,
-        ]);
-        $post->save();
-        
-        Toastr::success('Comment has been posted', 'Success');
-        return redirect()->route('forum.index');
+        //
     }
 
     /**
@@ -62,9 +44,9 @@ class DiscussionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Discussion $discussion)
+    public function show($id)
     {
-        return view('forum.discussion.show');
+        //
     }
 
     /**

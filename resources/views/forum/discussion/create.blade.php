@@ -11,7 +11,7 @@
         <section class="py-10">
             <div class="w-2/5 m-auto text-center">
                 <div>
-                    <form action="{{ route('discussion.store') }}" method="POST">
+                    <form action="{{ route('discussions.store') }}" method="POST">
                         @csrf
                         <div class="m-7">
                             <div class="mb-6">

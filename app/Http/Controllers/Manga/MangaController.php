@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manga;
 
+use App\Http\Controllers\Controller;
 use App\Models\Manga;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MangaController extends Controller
 {
