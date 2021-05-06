@@ -29,4 +29,16 @@ class Anime extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    //Add item to User's favorites animes
+    public function favorite_to_user()
+    {
+        return $this->belongsToMany(User::class, 'anime_favorite');
+    }
+    
+    //Add item to user's watched animes
+    public function watched_by_user()
+    {
+        return $this->belongsToMany(User::class, 'anime_watched');
+    }
 }

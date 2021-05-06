@@ -11,7 +11,7 @@ class FavoriteController extends Controller
     public function index()
     {
         $mangas = Auth::user()->favorite_manga;
-        return view('user.favorite', compact('mangas'));
+        return view('user.favorite', compact('mangas'))->with('favanimes', Auth::user()->favorite_anime);;
     }
 
     public function add($manga)
@@ -23,11 +23,11 @@ class FavoriteController extends Controller
         if ($isFavorite == 0)
         {
             $user->favorite_manga()->attach($manga);
-            Toastr::success('Post successfully added to your favorite list :)','Success');
+            Toastr::success('Manga successfully added to your favorite list :)','Success');
             return redirect()->back();
         } else {
             $user->favorite_manga()->detach($manga);
-            Toastr::success('Post successfully removed form your favorite list :)','Success');
+            Toastr::success('Manga successfully removed form your favorite list :)','Success');
             return redirect()->back();
         }
     }

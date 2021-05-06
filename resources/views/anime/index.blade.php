@@ -47,6 +47,68 @@
                 class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
                 Lire la suite
             </a>
+
+            <div class="wishlist py-15">
+
+                @guest
+
+                    <a class="hover:text-blue-500"
+                    href="javascript:void(0);" 
+                    onclick="toastr.info('Login to add to favs !', 'Info', 
+                    {closeButton: true, progressBar: true,})">
+                    <i class="fas fa-heart text-3xl"></i>{{ $anime->favorite_to_user->count() }}
+                    </a>
+
+                @else
+                    <style>.favorite_anime{color:blue;}.planning_anime{color:blue;}.watched_anime{color:blue;}</style>
+                    
+                    {{-- Anime fav button with count --}}
+
+                    <a class="hover:text-blue-500 
+                    {{ !Auth::user()->favorite_anime->where('pivot.anime_id',$anime->id)->count()  == 0 ? 'favorite_anime' : ''}}"
+                    href="javascript:void(0);" 
+                    onclick="document.getElementById('favorite-anime-form-{{ $anime->id }}').submit();">
+                    <i class="fas fa-heart text-3xl"></i> {{ $anime->favorite_to_user->count() }}
+                    </a>
+
+                    <form id="favorite-anime-form-{{ $anime->id }}" method="POST" 
+                    action="{{ route('anime.fav', $anime->id) }}" style="display: none;">
+                    @csrf
+                    </form>
+
+                    
+                    {{-- Anime planning button --}}
+
+                    <a class="hover:text-blue-500
+                    {{ !Auth::user()->planning_anime->where('pivot.anime_id',$anime->id)->count()  == 0 ? 'planning_anime' : ''}}"
+                    href="javascript:void(0);" 
+                    onclick="document.getElementById('planning-anime-form-{{ $anime->id }}').submit();">
+                    <i class="far fa-clock text-3xl pl-3"></i> 
+                    </a>
+
+                    <form id="planning-anime-form-{{ $anime->id }}" method="POST" 
+                    action="{{ route('anime.planning', $anime->id) }}" style="display: none;">
+                     @csrf
+                    </form>
+
+
+                    {{-- Anime watched button --}}
+                    
+                    <a class="hover:text-blue-500
+                    {{ !Auth::user()->watched_anime->where('pivot.anime_id',$anime->id)->count()  == 0 ? 'watched_anime' : ''}}"
+                    href="javascript:void(0);" 
+                    onclick="document.getElementById('watched-anime-form-{{ $anime->id }}').submit();">
+                    <i class="fas fa-check text-3xl pl-3"></i> 
+                    </a>
+
+                    <form id="watched-form-{{ $anime->id }}" method="POST" 
+                    action="{{ route('anime.watched', $anime->id) }}" style="display: none;">
+                     @csrf
+                    </form>
+
+                @endguest
+                
+            </div>
         </div>
     </div>
 

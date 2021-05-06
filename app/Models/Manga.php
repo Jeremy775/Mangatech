@@ -30,7 +30,7 @@ class Manga extends Model
     //Add item to User's favorites mangas
     public function favorite_to_user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'manga_user');
     }
     
     //Add item to user's read mangas

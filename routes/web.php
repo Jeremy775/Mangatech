@@ -3,32 +3,33 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\AnimesController;
-use App\Http\Controllers\Admin\ChannelsController;
-use App\Http\Controllers\Admin\CommentsController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DiscussionsController;
-use App\Http\Controllers\Admin\RepliesController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Anime\AnimeController;
+use App\Http\Controllers\Forum\ForumController;
+use App\Http\Controllers\Forum\ReplyController;
+use App\Http\Controllers\Manga\MangaController;
+use App\Http\Controllers\Admin\AnimesController;
 use App\Http\Controllers\Admin\MangasController;
 
-use App\Http\Controllers\Anime\AnimeController;
-use App\Http\Controllers\Anime\AnimeTagController;
-use App\Http\Controllers\Anime\CommentAnimeController;
-
-use App\Http\Controllers\Manga\CommentMangaController;
-use App\Http\Controllers\Manga\MangaController;
 use App\Http\Controllers\Manga\ReadedController;
+use App\Http\Controllers\Admin\RepliesController;
+use App\Http\Controllers\Anime\WatchedController;
+
+use App\Http\Controllers\Admin\ChannelsController;
+use App\Http\Controllers\Admin\CommentsController;
+use App\Http\Controllers\Anime\AnimeTagController;
 use App\Http\Controllers\Manga\FavoriteController;
 use App\Http\Controllers\Manga\MangaTagController;
 use App\Http\Controllers\Manga\PlanningController;
 
-use App\Http\Controllers\Forum\ForumController;
-use App\Http\Controllers\Forum\ReplyController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Forum\DiscussionController;
+use App\Http\Controllers\Admin\DiscussionsController;
 
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\Anime\CommentAnimeController;
+use App\Http\Controllers\Manga\CommentMangaController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 
 /*
@@ -65,13 +66,20 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User', 'middl
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
 });
 
-// --------------------------------  User Lists -------------------------------------------//
-Route::post('fav/{manga}/add', [FavoriteController::class, 'add'])->name('manga.fav')->middleware('auth');
-Route::post('planning/{manga}/add', [PlanningController::class, 'add'])->name('manga.planning')->middleware('auth');
+// --------------------------------  User Manga Lists -------------------------------------------//
+Route::post('favmanga/{manga}/add', [FavoriteController::class, 'add'])->name('manga.fav')->middleware('auth');
+Route::post('planning_manga/{manga}/add', [PlanningController::class, 'add'])->name('manga.planning')->middleware('auth');
 Route::post('readed/{manga}/add', [ReadedController::class, 'add'])->name('manga.readed')->middleware('auth');
 
 Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite.index');
-Route::get('/planning', [PlanningController::class, 'index'])->name('planning.index');
+Route::get('/planning_manga', [PlanningController::class, 'index'])->name('planning.manga.index');
+
+// --------------------------------  User Anime Lists -------------------------------------------//
+Route::post('favanime/{anime}/add', [App\Http\Controllers\Anime\FavoriteController::class, 'add'])->name('anime.fav')->middleware('auth');
+Route::post('planning_anime/{anime}/add', [App\Http\Controllers\Anime\PlanningController::class, 'add'])->name('anime.planning')->middleware('auth');
+Route::post('watched/{anime}/add', [WatchedController::class, 'add'])->name('anime.watched')->middleware('auth');
+
+Route::get('/planning_anime', [App\Http\Controllers\Anime\PlanningController::class, 'index'])->name('planning.anime.index');
 
 // --------------------------------  Anime -------------------------------------------//
 Route::resource('anime', AnimeController::class);

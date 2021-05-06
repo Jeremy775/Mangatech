@@ -23,11 +23,11 @@ class PlanningController extends Controller
         if ($isPlanned == 0)
         {
             $user->planning_manga()->attach($manga);
-            Toastr::success('Post successfully added to your planning list :)','Success');
+            Toastr::success('Manga successfully added to your planning list :)','Success');
             return redirect()->back();
         } else {
             $user->planning_manga()->detach($manga);
-            Toastr::success('Post successfully removed from your planning list :)','Success');
+            Toastr::success('Manga successfully removed from your planning list :)','Success');
             return redirect()->back();
         } 
     }

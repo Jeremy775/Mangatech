@@ -29,7 +29,7 @@
         <div class="container px-8 pt-28 pb-10 mx-auto lg:px-4">
             <div class="flex flex-wrap text-left">
                             
-                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.index') }}">
+                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.manga.index') }}">
                     <div
                         class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
                         <i class="fas fa-book text-6xl"></i>
@@ -38,7 +38,7 @@
                                 
                 </a>
 
-                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.index') }}">
+                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.anime.index') }}">
                     <div
                         class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
                         <i class="fab fa-buysellads text-6xl"></i>

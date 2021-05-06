@@ -55,9 +55,10 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    //-----------------------User Manga list----------------------------//
     public function favorite_manga()
     {
-        return $this->belongsToMany(Manga::class);
+        return $this->belongsToMany(Manga::class, 'manga_user');
     }
 
     public function planning_manga()
@@ -70,6 +71,23 @@ class User extends Authenticatable
         return $this->belongsToMany(Manga::class, 'manga_user_readed');
     }
 
+    //-----------------------User Anime list----------------------------//
+    public function favorite_anime()
+    {
+        return $this->belongsToMany(Anime::class, 'anime_favorite');
+    }
+
+    public function planning_anime()
+    {
+        return $this->belongsToMany(Anime::class, 'anime_planning');
+    }
+
+    public function watched_anime()
+    {
+        return $this->belongsToMany(Anime::class, 'anime_watched');
+    }
+
+    //-----------------------Forum----------------------------//
     public function discussions()
     {
         return $this->hasMany(Discussion::class);

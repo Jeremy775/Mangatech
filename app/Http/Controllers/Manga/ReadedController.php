@@ -8,12 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ReadedController extends Controller
 {
-    // public function index()
-    // {
-    //     $readedMangas = Auth::user()->readed_manga;
-    //     return view('user.planning', compact('readedMangas'));
-    // }
-
+    
     public function add($manga)
     {
         // dump($manga);
@@ -24,11 +19,11 @@ class ReadedController extends Controller
         if ($isReaded == 0)
         {
             $user->readed_manga()->attach($manga);
-            Toastr::success('Post successfully added to your Readed list :)','Success');
+            Toastr::success('This manga has been successfully added to your Readed list :)','Success');
             return redirect()->back();
         } else {
             $user->readed_manga()->detach($manga);
-            Toastr::success('Post successfully removed from your Readed list :)','Success');
+            Toastr::success('This manga has been successfully removed from your Readed list :)','Success');
             return redirect()->back();
         } 
     }

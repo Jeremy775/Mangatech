@@ -17,13 +17,12 @@
 		
 </head>
 <body class="bg-gray-200 font-sans leading-normal tracking-normal">
-
-	<!--Header-->
-	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url(); height: 60vh; max-height:460px;">
+		<!--Header-->
+		<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url(); height: 60vh; max-height:460px;">
 			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
 				<!--Title-->
 					<p class="text-black font-extrabold text-3xl md:text-5xl">
-						 Favorites Mangas
+						Favorites
 					</p>			
 			</div>
 		</div>
@@ -36,32 +35,62 @@
 				@include('partial.header-user-list')
 
 				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-					
-				<!--Lead Card-->
-				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-							
-					<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-								                
-                        <section class="overflow-hidden text-gray-700 body-font">
-                            <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-                                <div class="flex flex-wrap -m-1 md:-m-2">
-                                    
-                                    @foreach ($mangas as $manga)
-                                        
-                                        <div class="flex flex-wrap w-1/3">
-                                            <div class="w-full p-1 md:p-2">
-                                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                                    src="{{ $manga->image }}">
-                                            </div>
-                                        </div>
-
-                                    @endforeach
-                        </section>
-                                                                        
-					</div>
+					<h1 class="text-center">Mangas</h1>
+					<!--Lead Card-->
+					<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
+								
+						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+													
+							<section class="overflow-hidden text-gray-700 body-font">
+								<div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+									<div class="flex flex-wrap -m-1 md:-m-2">
+										
+										@foreach ($mangas as $manga)
+											
+											<div class="flex flex-wrap w-1/3">
+												<div class="w-full p-1 md:p-2">
+													<img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+														src="{{ $manga->image }}">
+												</div>
+											</div>
 	
+										@endforeach
+							</section>
+																			
+						</div>
+		
+					</div>
 				</div>
-				
+
+				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
+					<h1 class="text-center">Animes</h1>
+					<!--Lead Card-->
+					<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
+								
+						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+													
+							<section class="overflow-hidden text-gray-700 body-font">
+								<div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+									<div class="flex flex-wrap -m-1 md:-m-2">
+										
+										@foreach ($favanimes as $anime)
+											
+											<div class="flex flex-wrap w-1/3">
+												<div class="w-full p-1 md:p-2">
+													<img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+														src="{{ $anime->image }}">
+													
+												</div>
+												<span>{{ $anime->title }}</span>
+											</div>
+					
+										@endforeach
+							</section>
+																			
+						</div>
+		
+					</div>
+				</div>
 			</div>
 						
 		</div>

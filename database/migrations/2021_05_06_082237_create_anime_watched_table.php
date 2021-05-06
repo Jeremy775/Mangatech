@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMangaUserTable extends Migration
+class CreateAnimeWatchedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateMangaUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('manga_favorite', function (Blueprint $table) {
+        Schema::create('anime_watched', function (Blueprint $table) {
             $table->id();
-            $table->integer('manga_id')->unsigned();
+            $table->integer('anime_id')->unsigned();
             $table->integer('user_id');
-            $table->foreign('manga_id')->references('id')->on('mangas')->onDelete('cascade');
+            $table->foreign('anime_id')->references('id')->on('animes')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateMangaUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manga_user');
+        Schema::dropIfExists('anime_watched');
     }
 }
