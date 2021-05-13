@@ -1,4 +1,4 @@
-@extends('layouts.appforum')
+@extends('layouts.app')
 
 @section('content')
 
@@ -6,7 +6,10 @@
     <!--Original post-->
     <div class="rounded w-full overflow-hidden border border-blue-500 shadow-lg text-center">
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2 text-left">{{ $discussion->user->name }}</div>
+        <div class="flex justify-between items-center">
+          <div class="font-bold text-xl mb-2 text-left">{{ $discussion->user->name }}</div>
+          <small>{{ $discussion->created_at }}</small>
+        </div>
         <div class="font-bold text-xl mb-2 py-5">{{ $discussion->title }}</div>
         <hr>
         <p class="text-gray-700 text-base py-6">
@@ -18,12 +21,14 @@
 
 
     <!-- Replies -->
-
     @foreach ($discussion->replies()->paginate(12) as $reply)
 
       <div class="rounded w-full overflow-hidden border border-gray-900 shadow-lg text-center mt-10">
         <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2 text-left">{{ $reply->owner->name }}</div>
+          <div class="flex justify-between items-center">
+            <div class="font-bold text-xl mb-2 text-left">{{ $reply->owner->name }}</div>
+            <small>{{ $reply->created_at }}</small>
+          </div>
           <hr>
           <p class="text-gray-700 text-base py-5">
             {{ $reply->content }}
@@ -59,7 +64,7 @@
           </form>
         @else
 
-          <div class="font-bold text-xl mb-2 text-center">sign in to add a reply</div>
+          <div class="font-bold uppercase text-xl text-red-600 mb-2 text-center">sign in to add a reply</div>
 
         @endauth
         

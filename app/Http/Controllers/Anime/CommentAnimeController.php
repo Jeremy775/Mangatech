@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Anime;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\CommentReply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
@@ -56,8 +57,13 @@ class CommentAnimeController extends Controller
     }
 
     //  * Remove the specified resource from storage.
-    public function destroy(comment $comment){
-        if (auth()->user()->is($comment->user)) {
+    public function destroy($id){
+        //find comment id - 404 error if not found
+        $comment = Comment::findOrFail($id);
+        if ($comment->user_id == Auth::id() ) {
+            //delete replies when deleting the root comment
+            $replies = CommentReply::where('comment_id', $id)->delete();
+            //delete comment
             $comment->delete();
         }
         

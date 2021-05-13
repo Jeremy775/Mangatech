@@ -1,4 +1,4 @@
-@extends('layouts.appforum')
+@extends('layouts.app')
 
 @section('content')
 

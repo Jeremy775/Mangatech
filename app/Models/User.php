@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function commentReplies()
+    {
+        return $this->hasMany(CommentReply::class);
+    }
+
     //-----------------------User Manga list----------------------------//
     public function favorite_manga()
     {

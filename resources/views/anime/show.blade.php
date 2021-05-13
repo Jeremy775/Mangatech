@@ -5,10 +5,10 @@
 
 
 <div class="sm:grid grid-cols-2 mx-auto py-15 border-b border-gray-200">
-    <div class="flex justify-center">
+    <div class="flex justify-center md:justify-end">
         <img class="h-80" src="{{ $anime->image }}">
     </div>
-    <div class="w-4/5 m-auto text-left">
+    <div class="w-4/5 m-auto text-center md:text-left">
 
         <div class="py-8">
             <h1 class="text-6xl pb-6">
@@ -80,40 +80,12 @@
 
 @endguest
 
+{{-- COMMENT SECTION --}}
 <section class="pt-10 mb-100">
     <div>
         <div class="m-5">
             @foreach ($anime->comments as $comment )
-
-                <div class="pb-5 py-5 border-b border-gray-200">
-                    <h3 class="text-2xl font-bold">{{ $comment->user->name }}</h3>
-                    <small>Le {{ $comment->created_at }}</small>
-                    <blockquote class="pt-3">
-                        <em>{{ $comment->comment }}</em>
-                    </blockquote>
-
-                    @if (isset(Auth::user()->id) && Auth::user()->id == $comment->user_id)
-
-                        <span class="float-right">
-                            <a href="{{ route('comment.edit', $comment->id) }}"
-                            class="text-gray-700 italic hover:text-blue-500">Edit</a>
-                        </span>
-
-                        <span class="float-right">
-                            <form action="{{ route('comment.destroy', $comment->id) }}"
-                                method="POST">
-                                @csrf
-                                @method('DELETE')
-                                
-                                <button class="text-red-500 pr-3 hover:text-red-900" type="submit">
-                                    Delete
-                                </button>
-                            </form>
-                        </span>
-                    
-                    @endif
-                </div>
-
+                @include('partial.comment-section')
             @endforeach
         </div>
     </div>

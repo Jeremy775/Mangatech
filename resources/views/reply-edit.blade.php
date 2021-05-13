@@ -5,7 +5,7 @@
 <div class="w-4/5 m-auto text-left">
     <div class="py-15">
         <h1 class="text-6xl">
-            Update comment
+            Update reply
         </h1>
     </div>
 </div>
@@ -23,15 +23,16 @@
 @endif
 
 <div class="w-4/5 m-auto pt-10">
-    <form action="{{ route('comment.update', $comment->id) }}"
+    <form action="{{ route('comment-reply.update', $reply->id) }}"
           method="POST"
           enctype="multipart/form-data">
           @csrf
           @method('PUT')
+          {{-- <input type="hidden" name="cid" value="{{ $comment->id }}"> --}}
 
-            <textarea name="comment"
+            <textarea name="message"
                       class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">
-                      {{ $comment->comment }}
+                      {{ $reply->message }}
             </textarea>
 
             <button type="submit"

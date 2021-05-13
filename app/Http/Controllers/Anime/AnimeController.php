@@ -14,7 +14,15 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        return view('anime.index')->with('animes', Anime::orderBy('title', 'DESC')->get());               
+        $search = request()->query('search');
+
+        if ($search) {
+            $animes = Anime::where('title', 'LIKE', "%{$search}%")->simplePaginate(10);
+        } else {
+            $animes = Anime::paginate(3);
+        }
+
+        return view('anime.index', ['animes' => $animes ]);               
     }
     
 
