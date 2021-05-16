@@ -7,11 +7,7 @@ use App\Models\Anime;
 
 class AnimeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $search = request()->query('search');
@@ -26,12 +22,7 @@ class AnimeController extends Controller
     }
     
 
-     /**
-     * Display the specified resource.
-     *
-     * @param  string  $slug
-     * @return \Illuminate\Http\Response
-     */
+     
     public function show($slug)
     {
         return view('anime.show')->with('anime', Anime::where('slug', $slug)->first());
