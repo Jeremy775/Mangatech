@@ -98,7 +98,6 @@ Route::post('manga/{manga}/comment', [CommentMangaController::class, 'store'])->
 Route::post('comment-reply/{comment}', [CommentReplyController::class, 'store'])->name('comment-reply.store');
 Route::resource('comment-reply', CommentReplyController::class)->except(['store', 'index', 'show']);
 // --------------------------------  Forum -------------------------------------------//
-Route::resource('forum', ForumController::class);
 Route::resource('discussions', DiscussionController::class);
 Route::resource('discussions/{discussion}/replies', ReplyController::class);
 

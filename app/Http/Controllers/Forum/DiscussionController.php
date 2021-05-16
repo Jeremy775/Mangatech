@@ -14,35 +14,23 @@ class DiscussionController extends Controller
 {
     public function __construct()
     {
+        //if user is auth he can create and store data if not : show login page
         $this->middleware('auth')->only(['create', 'store']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   //called by forum link on layouts.app nav
     public function index()
     {
         return view('forum.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         return view('forum.discussion.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(CreateDiscussionRequest $request)
     {
         $post = auth()->user()->discussions()->create([
@@ -57,12 +45,7 @@ class DiscussionController extends Controller
         return redirect()->route('forum.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Discussion $discussion)
     {
         return view('forum.discussion.show', [
@@ -70,37 +53,4 @@ class DiscussionController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
