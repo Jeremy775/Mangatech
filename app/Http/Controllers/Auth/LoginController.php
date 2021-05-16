@@ -46,7 +46,7 @@ class LoginController extends Controller
     {
         if ( Auth::user()->role->id ==1 ) {
             
-            //redirect to admin page when logged in
+            //redirect to admin page with user ressource when logged in
             return redirect()->route('admin.users.index')->with(['users' => User::paginate(10)]);
         } else {
             

@@ -10,33 +10,19 @@ use Illuminate\Http\Request;
 
 class AnimesController extends Controller
 {
-    /**
-     * Display a listing of the animes and paginate them.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('admin.animes.index')->with(['animes' => Anime::paginate(10)]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * and calling the tags for the check input
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('admin.animes.create', ['tags' => Tag::all()]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(CreateAnimeRequest $request)
     {
         //Setting a new name for the image with the time , anime title and image extension
@@ -59,31 +45,20 @@ class AnimesController extends Controller
         return redirect(route('admin.animes.index'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         return view('admin.animes.edit', 
         [
             'tags' => Tag::all(), //For the check input
-            'anime' => Anime::find($id) // pour passer $user->id a la route update 
+            'anime' => Anime::find($id) // To pass $user->id to update route
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        // return 404 error if User not found
+        // return 404 error if Anime's id not found
         $anime = Anime::findOrFail($id);
 
         $anime->update([
@@ -99,12 +74,7 @@ class AnimesController extends Controller
         return redirect(route('admin.animes.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         Anime::destroy($id);

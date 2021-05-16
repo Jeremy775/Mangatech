@@ -7,23 +7,14 @@ use App\Models\Reply;
 
 class RepliesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('admin.replies.index')->with(['replies' => Reply::paginate(10)]);
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         Reply::destroy($id);
