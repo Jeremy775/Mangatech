@@ -57,7 +57,9 @@ class CommentAnimeController extends Controller
         $comment = Comment::findOrFail($id);
         if ($comment->user_id == Auth::id() ) {
             //delete replies when deleting the root comment
-            $replies = CommentReply::where('comment_id', $id)->delete();
+            $replies = CommentReply::where('comment_id', $id)->delete(); // SQL format : DELETE * FROM comment_replies 
+                                                                                        //INNER JOIN comments ON comments.id = comment_replies.comment_id 
+                                                                                        //WHERE comments.id = :id
             //delete comment
             $comment->delete();
         }

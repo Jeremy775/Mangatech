@@ -19,7 +19,7 @@ class AnimesController extends Controller
     
     public function create()
     {
-        return view('admin.animes.create', ['tags' => Tag::all()]);
+        return view('admin.animes.create', ['tags' => Tag::all()]); // SELECT * FROM tags
     }
 
     
