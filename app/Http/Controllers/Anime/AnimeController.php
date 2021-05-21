@@ -27,4 +27,8 @@ class AnimeController extends Controller
     {
         return view('anime.show')->with('anime', Anime::where('slug', $slug)->first());
     }
+
+    /**
+     * To do: Filter animes by favorite count
+     */
 }
