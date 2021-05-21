@@ -136,6 +136,6 @@
 </p>
 @endforelse
 {{-- append -> search value effective in every pages of the pagination --}}
-{{ $animes->appends(['search' => request()->query('search')])->links() }}
+{{-- {{ $animes->appends(['search' => request()->query('search')])->links() }} --}}
 
 @endsection
