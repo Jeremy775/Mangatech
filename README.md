@@ -7,7 +7,7 @@
 Mangatech est une application de gestion de contenu (mangas, animes), elle vous permet de :
 
 - Découvrir des mangas / animes.
-- Voir les mangas / animes les plus likés.
+- Voir les mangas / animes les plus likés -- (bientôt).
 - Ajouter un manga / anime a vos liste de favoris, lu/vu, à lire / à voir.
 - Echanger avec les autres utilisateurs en commantant les articles ou en participant au forum.
 - Une interface simple et intuitive.

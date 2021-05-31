@@ -1,0 +1,30 @@
+MVC : Modèle possède des fonctions qui communiquent avec la base de donnée. Controller est le cerveau.
+
+architecture n-tiers : CLIENT | SERVEUR APPLICATIF (code, MVC) | BASE DE DONNEE
+
+diagramme de cas d'utilisation : méthode uml (coté dev)
+
+zoning : 
+
+wireframe :
+
+mcd : méthode merise (coté database)
+
+ -> relation One To Many la clé étrangère va tjr du Many au One donc dans la table One.
+
+
+
+moteur de stockage InnoDb -> gere les relation 
+                   MyIsam -> fait pas les relations
+                                
+
+
+
+
+
+                            
+
+                            
+
+                            
+                            
