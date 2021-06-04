@@ -39,12 +39,13 @@ class CommentAnimeController extends Controller
         return view('anime.edit', $data);
     }
 
-    // Update the specified resource in storage.
     public function update(Request $request, $id)
     {
+        // on stocke la requete dans une variable
         $updateData = $request->validate([
             'comment' => 'required|max:1000',
         ]);
+        //on valide si le commentaire correspond à l'id et on update la requete de la variable
         Comment::whereId($id)->update($updateData);
 
         Toastr::success('Comment has been edited', 'Success');

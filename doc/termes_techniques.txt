@@ -2,29 +2,36 @@ MVC : Modèle possède des fonctions qui communiquent avec la base de donnée. C
 
 architecture n-tiers : CLIENT | SERVEUR APPLICATIF (code, MVC) | BASE DE DONNEE
 
-diagramme de cas d'utilisation : méthode uml (coté dev)
+diagramme de cas d'utilisation : langage uml (coté dev)
 
 zoning : 
 
 wireframe :
 
-mcd : méthode merise (coté database)
+méthode merise (coté database) -> MCD  -> ENTITE ASSOCIATION CARDINALITE 
+                                          ENTITE != TABLE    PROPRIETE != COLONNE 
+                               -> MLD 
 
  -> relation One To Many la clé étrangère va tjr du Many au One donc dans la table One.
+ -> many to many la clé étrangère va ds la table pivot
+
+clé primaire 
+clé étrangere 
+
+ORM ( Objet Relational Mapping) : lien entre objet et une table , simule une base de donnée orientée objet
+correspondante entre schéma de la base de donnée et class 
 
 
 
 moteur de stockage InnoDb -> gere les relation 
                    MyIsam -> fait pas les relations
-                                
+
+méthode statique : méthode de classe qui n'a pas besoin d'être instancié. permet de "ranger" et voir toutes les méthodes
+qd on met le nom de la class + "::". 
+
+programmation orienté objet : 
+
+methode non statique : appartient a un objet d'une classe 
 
 
 
-
-
-                            
-
-                            
-
-                            
-                            
