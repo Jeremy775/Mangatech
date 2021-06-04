@@ -41,4 +41,12 @@ programmation orienté objet :
 methode non statique : appartient a un objet d'une classe 
 
 
+Sécurité:
+
+Jetons CSRF :Pour contrer une attaque CSRF qui consiste à envoyer des fausses requetes
+HTTP. Il doit être placer dans un formulaire, 
+
+mot de passe haché: on peut pas le dé-hashé contrairement au chiffré que l'on peut déchiffrer 
+
+
 
