@@ -6,6 +6,8 @@ UML : langage graphique qui est utilisé dans plusieurs domaines,
     qui permet de décrire le comportement du systeme et de ses objets
 
 diagramme de cas d'utilisation: schématise les possibilités et limites d’actions des acteurs sur le site
+extends : possibilités
+include : obligation
 
 zoning : 
 
@@ -40,6 +42,7 @@ programmation orienté objet :
 
 methode non statique : appartient a un objet d'une classe 
 
+___________________________________________________________________________________________
 
 Sécurité:
 
