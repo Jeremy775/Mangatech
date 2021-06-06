@@ -53,15 +53,15 @@ class CommentAnimeController extends Controller
     }
 
     public function destroy($id){
-        //find comment id - 404 error if not found
+        //on cherche l'id de comment - 404 error si introuvable
         $comment = Comment::findOrFail($id);
         if ($comment->user_id == Auth::id() ) {
-            //delete replies when deleting the root comment
+            //on supprime les reply qd le root comment est supprimé
             $replies = CommentReply::where('comment_id', $id)->delete(); 
             // SQL format : DELETE * FROM comment_replies                                                                          
                             //INNER JOIN comments ON comments.id = comment_replies.comment_id                                                                            
                             //WHERE comments.id = :id
-            //delete comment
+            //on supprime le commentaire
             $comment->delete();
         }
         
