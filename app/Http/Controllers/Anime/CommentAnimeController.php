@@ -41,7 +41,7 @@ class CommentAnimeController extends Controller
 
     public function update(Request $request, $id)
     {
-        // on stocke la requete dans une variable
+        // on stocke la requete validée dans une variable
         $updateData = $request->validate([
             'comment' => 'required|max:1000',
         ]);
@@ -52,15 +52,15 @@ class CommentAnimeController extends Controller
         return redirect()->action([AnimeController::class, 'index']);
     }
 
-    //  * Remove the specified resource from storage.
     public function destroy($id){
         //find comment id - 404 error if not found
         $comment = Comment::findOrFail($id);
         if ($comment->user_id == Auth::id() ) {
             //delete replies when deleting the root comment
-            $replies = CommentReply::where('comment_id', $id)->delete(); // SQL format : DELETE * FROM comment_replies 
-                                                                                        //INNER JOIN comments ON comments.id = comment_replies.comment_id 
-                                                                                        //WHERE comments.id = :id
+            $replies = CommentReply::where('comment_id', $id)->delete(); 
+            // SQL format : DELETE * FROM comment_replies                                                                          
+                            //INNER JOIN comments ON comments.id = comment_replies.comment_id                                                                            
+                            //WHERE comments.id = :id
             //delete comment
             $comment->delete();
         }

@@ -17,7 +17,7 @@ class AnimeTagController extends Controller
                     // SQL format : SELECT * FROM animes 
                     // INNER JOIN anime_tag ON anime_tag.anime_id = animes.id 
                     // INNER JOIN tags ON tags.id = anime_tag.tag_id 
-                    // WHERE tags.name = 'Action'
+                    // WHERE tags.name = '?'
     }
 
 }
