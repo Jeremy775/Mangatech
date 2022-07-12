@@ -53,7 +53,7 @@ class DiscussionController extends Controller
         ]);
         $post->save();
         
-        Toastr::success('Comment has been posted', 'Success');
+        Toastr::success('La discussion a été créée', 'Success');
         return redirect()->route('forum.index');
     }
 

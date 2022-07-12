@@ -9,13 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function anime()
+    public function cour()
     {
-        return $this->belongsTo(Anime::class);
+        return $this->belongsTo(Cour::class);
     }
 
-    public function manga()
-    {
-        return $this->belongsTo(Manga::class);
-    }
 }

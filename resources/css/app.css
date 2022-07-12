@@ -6,7 +6,7 @@
 
 .background-image 
 {
-    background-image: url(https://static2.srcdn.com/wordpress/wp-content/uploads/2020/09/demon-slayer-anime-wisteria-flowers.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5);
+    background-image: url("../../public/images/informatique2.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -14,15 +14,20 @@
     height: 640px;
 }
 
+.wesh
+{
+    color: black;
+}
+/* 
 #show-bg
 {
-    background-image: url("https://theglobalcoverage.com/wp-content/uploads/2021/03/%E2%80%98Tales-Of-Demons-and-Gods-Chapter-257-Updates-and-New-Details.png");
+    background-image: url("");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}
+} */
 
-.animes-btn:hover {
+.cours-btn:hover {
     color: red;
 }

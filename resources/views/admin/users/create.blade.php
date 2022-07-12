@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mangatech | Admin dashboard | Create User</title>
+    <title>Greatapp | Admin dashboard | Create User</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 

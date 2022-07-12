@@ -16,15 +16,9 @@ class Comment extends Model
     ];
 
     //Many To One relation
-    public function animes()
+    public function cours()
     {
-        return $this->belongsTo(Anime::class);
-    }
-
-    //Many To One relation
-    public function mangas()
-    {
-        return $this->belongsTo(Manga::class);
+        return $this->belongsTo(Cour::class);
     }
 
     //Many To One relation

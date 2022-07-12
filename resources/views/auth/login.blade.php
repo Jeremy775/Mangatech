@@ -7,7 +7,7 @@
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
                 <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    {{ __('Login') }}
+                    {{ __('Se connecter') }}
                 </header>
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
@@ -15,7 +15,7 @@
 
                     <div class="flex flex-wrap">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('E-Mail Address') }}:
+                            {{ __('Adresse mail') }}:
                         </label>
 
                         <input id="email" type="email"
@@ -32,12 +32,12 @@
 
                     <div class="flex flex-wrap">
                         <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Password') }}:
+                            {{ __('Mot de passe') }}:
                         </label>
 
                         <input id="password" type="password"
                             class="form-input w-full @error('password') border-red-500 @enderror" 
-                            placeholder="password"
+                            placeholder="mot de passe"
                             name="password"
                             required>
 

@@ -1,0 +1,6 @@
+je met le laravel/framework dans composer.json à jour
+j'utilise la commande composer update
+
+Je met en commentaire ce qu'il y a dans le ficher AppServiceProvider.php pour pouvoir lancer la migration
+commande php artisan migrate après avoir créer la base de donnée du meme nom que dans le fichier .env
+

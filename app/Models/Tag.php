@@ -17,14 +17,9 @@ class Tag extends Model
     public $timestamps = false;
 
 
-    public function anime()
+    public function cour()
     {
-        return $this->belongsToMany(Anime::class);
-    }
-
-    public function manga()
-    {
-        return $this->belongsToMany(Manga::class);
+        return $this->belongsToMany(Cour::class);
     }
 
     public function getRouteKeyName()

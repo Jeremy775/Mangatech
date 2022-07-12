@@ -54,12 +54,12 @@
                         dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
           </div>
 
-            <button type="submit" class="bg-blue-500 text-gray-100 font-bold py-4 px-8 rounded-3xl">Add reply</button>
+            <button type="submit" class="bg-blue-500 text-gray-100 font-bold py-4 px-8 rounded-3xl">Répondre</button>
             
           </form>
         @else
 
-          <div class="font-bold text-xl mb-2 text-center">sign in to add a reply</div>
+          <div class="font-bold text-xl mb-2 text-center">Connectez vous pour ajouter une réponse</div>
 
         @endauth
         

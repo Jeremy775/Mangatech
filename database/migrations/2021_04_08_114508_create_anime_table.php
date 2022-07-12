@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimeTable extends Migration
+class CreateCourTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAnimeTable extends Migration
      */
     public function up()
     {
-        Schema::create('animes', function (Blueprint $table) {
+        Schema::create('cours', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
             $table->string('title');
@@ -33,6 +33,6 @@ class CreateAnimeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animes');
+        Schema::dropIfExists('cours');
     }
 }

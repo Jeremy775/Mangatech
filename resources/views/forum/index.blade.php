@@ -7,7 +7,7 @@
   <div class="text-center pb-10">
       <a href="{{ route('discussions.create') }}" 
       class="uppercase bg-blue-500 text-gray-100 text-lg font-bold py-4 px-8 rounded-3xl">
-      Add discussion
+      Créer une discussion
       </a>
   </div>
 

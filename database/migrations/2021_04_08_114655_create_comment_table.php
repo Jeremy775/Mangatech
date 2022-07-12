@@ -15,8 +15,7 @@ class CreateCommentTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('anime_id')->nullable();
-            $table->unsignedBigInteger('manga_id')->nullable();
+            $table->unsignedBigInteger('cour_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->text('comment');
             $table->timestamps();

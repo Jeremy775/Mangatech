@@ -50,7 +50,7 @@ class LoginController extends Controller
             return redirect()->route('admin.users.index')->with(['users' => User::paginate(10)]);
         } else {
             
-            Toastr::info("Hello", 'Logged in');
+            Toastr::info("Bienvenue");
             return redirect('/');
         }
         

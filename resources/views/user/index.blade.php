@@ -21,7 +21,7 @@
 	
 	<!--Title-->
 	<h1 class="text-black font-extrabold text-3xl text-center pt-10 md:text-5xl py-15 border-b border-gray-300">
-		{{ Auth::user()->name }}'s profile
+		{{ Auth::user()->name }}
     </h1>			
 
 		
@@ -29,30 +29,22 @@
         <div class="container px-8 pt-28 pb-10 mx-auto lg:px-4">
             <div class="flex flex-wrap text-left">
                             
-                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.manga.index') }}">
+
+                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.cour.index') }}">
                     <div
                         class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
                         <i class="fas fa-book text-6xl"></i>
                     </div>
-                    <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">My Mangas</h2>
-                                
+                    <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">Mes cours</h2>
                 </a>
 
-                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('planning.anime.index') }}">
+                {{-- <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('favorite.index') }}">
                     <div
                         class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
-                        <i class="fab fa-buysellads text-6xl"></i>
-                    </div>
-                    <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">My Animes</h2>
-                </a>
-
-                <a class="text-center px-8 py-6 lg:w-1/3 md:w-full" href="{{ route('favorite.index') }}">
-                    <div
-                        class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 mb-5 text-blue-800 bg-gray-200 rounded-full">
-                        <i class="fas fa-heart text-6xl"></i>
+                        <i class="fas fa-book text-6xl"></i>
                     </div>
                     <h2 class="mb-3 text-lg font-medium text-gray-700 title-font">Favorites</h2>  
-                </a>
+                </a> --}}
 
             </div>
         </div>

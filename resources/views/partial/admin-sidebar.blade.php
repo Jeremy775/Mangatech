@@ -8,13 +8,9 @@
             <i class="fas fa-user mr-3"></i>
            Users
         </a>
-        <a href="{{ route('admin.mangas.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-            <i class="fas fa-book mr-3"></i>
-            Mangas
-        </a>
-        <a href="{{ route('admin.animes.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="{{ route('admin.cours.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fab fa-buysellads mr-3"></i>
-            Animes
+            Cours
         </a>
         <a href="{{ route('admin.tags.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-tags mr-3"></i>

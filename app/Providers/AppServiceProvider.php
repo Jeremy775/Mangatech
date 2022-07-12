@@ -32,14 +32,9 @@ class AppServiceProvider extends ServiceProvider
         Builder::defaultStringLength(191);
 
         // filter by tag
-        view()->composer('anime.index', function ($view)
+        view()->composer('cour.index', function ($view)
         {
-            $view->with('tags', Tag::has('anime')->pluck('slug' , 'name'));
-        });
-
-        view()->composer('manga.index', function ($view)
-        {
-            $view->with('tags', Tag::has('manga')->pluck('slug' , 'name'));
+            $view->with('tags', Tag::has('cour')->pluck('slug' , 'name'));
         });
         
         // forum variables can be called on all pages

@@ -21,25 +21,16 @@ class CreateTagTable extends Migration
 
 
 
-        Schema::create('anime_tag', function (Blueprint $table) {
-            $table->integer('anime_id');
-            $table->foreign('anime_id')->references('id')->on('animes');
+        Schema::create('cour_tag', function (Blueprint $table) {
+            $table->integer('cour_id');
+            $table->foreign('cour_id')->references('id')->on('cours');
 
             $table->integer('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags');
 
-            $table->primary(['anime_id', 'tag_id']);
+            $table->primary(['cour_id', 'tag_id']);
         });
 
-        Schema::create('manga_tag', function (Blueprint $table) {
-            $table->integer('manga_id');
-            $table->foreign('manga_id')->references('id')->on('mangas');
-
-            $table->integer('tag_id');
-            $table->foreign('tag_id')->references('id')->on('tags');
-
-            $table->primary(['manga_id', 'tag_id']);
-        });
     }
 
     /**
@@ -50,6 +41,6 @@ class CreateTagTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tags');
-        Schema::dropIfExists('anime_tag');
+        Schema::dropIfExists('cour_tag');
     }
 }

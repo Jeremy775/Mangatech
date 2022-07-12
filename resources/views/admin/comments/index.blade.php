@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mangatech - Admin - Comments</title>
+    <title>Greatapp - Admin - Comments</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
@@ -44,8 +44,7 @@
                             <thead class="bg-gray-800 text-white">
                                 <tr>
                                     <th class="text-left py-3 px-4 uppercase font-bold text-sm">#id</td>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">anime_id</th>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">manga_id</th>
+                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">cour_id</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">User</td>
                                     <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">comment</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">CRUD</td>
@@ -59,9 +58,8 @@
                                 <tr>
                                     <td class="w-1/6 text-left font-bold py-3 px-4">{{ $comment->id }}</td>
                                     <td class="w-1/6 text-left py-3 px-4">
-                                        {{ $comment->anime_id }}
+                                        {{ $comment->cour_id }}
                                     </td>
-                                    <td class="w-1/6 text-left py-3 px-4">{{ $comment->manga_id }}</td>
                                     <td class="w-1/6 text-left py-3 px-4">{{ $comment->user->name }}</td>
                                     <td class="w-1/6 text-left py-3 px-4">{{ $comment->comment }}</td>
                                 
