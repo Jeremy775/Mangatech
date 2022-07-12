@@ -20,9 +20,7 @@
         <header class="bg-blue-900 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                        {{ config('app.name', 'Greatapp') }}
-                    </a>
+                    <img class="grtimg" src="{{ asset('images/gretalogo.jfif') }}" alt="description of myimage">
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                         <a class="no-underline hover:underline" href="{{ route('cour.index') }}">{{ __('Cours') }}</a>

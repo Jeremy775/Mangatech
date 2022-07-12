@@ -18,7 +18,7 @@
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 text-left">{{ $discussion->user->name }}</div>
         <span class="block text-right">{{ $discussion->created_at }}</span>
-        <div class="font-bold text-xl mb-2"><a href="{{ route('discussions.show', $discussion->slug) }}">{{ $discussion->title }}</a></div>
+        <div class="font-bold text-xl mb-2"><a href="{{ route('discussions.show', $discussion->id) }}">{{ $discussion->title }}</a></div>
         <p class="text-gray-700 text-base">
           {{ $discussion->content }}
         </p>
