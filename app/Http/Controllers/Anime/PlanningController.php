@@ -19,7 +19,7 @@ class PlanningController extends Controller
         $user = Auth::user();
         $isPlanned = $user->planning_anime()->where('anime_id',$anime)->count();
         
-
+        //add anime to planned list or remove it from planned list if it was already added
         if ($isPlanned == 0)
         {
             $user->planning_anime()->attach($anime);

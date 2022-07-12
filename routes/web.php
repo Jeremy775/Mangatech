@@ -29,6 +29,7 @@ use App\Http\Controllers\Forum\DiscussionController;
 use App\Http\Controllers\Admin\DiscussionsController;
 
 use App\Http\Controllers\Anime\CommentAnimeController;
+use App\Http\Controllers\CommentReplyController;
 use App\Http\Controllers\Manga\CommentMangaController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 
@@ -91,11 +92,12 @@ Route::get('/manga/tags/{tag}', [MangaTagController::class, 'index']);
 
 // --------------------------------  Comments -------------------------------------------//
 Route::resource('comment', CommentAnimeController::class)->except('store');
-route::post('anime/{anime}/comment', [CommentAnimeController::class, 'store'])->name('anime.comment.store');
-route::post('manga/{manga}/comment', [CommentMangaController::class, 'store'])->name('manga.comment.store');
+Route::post('anime/{anime}/comment', [CommentAnimeController::class, 'store'])->name('anime.comment.store');
+Route::post('manga/{manga}/comment', [CommentMangaController::class, 'store'])->name('manga.comment.store');
 
+Route::post('comment-reply/{comment}', [CommentReplyController::class, 'store'])->name('comment-reply.store');
+Route::resource('comment-reply', CommentReplyController::class)->except(['store', 'index', 'show']);
 // --------------------------------  Forum -------------------------------------------//
-Route::resource('forum', ForumController::class);
 Route::resource('discussions', DiscussionController::class);
 Route::resource('discussions/{discussion}/replies', ReplyController::class);
 

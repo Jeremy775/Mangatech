@@ -9,19 +9,22 @@
         </h1>
     </div>
 
-    <div class="py-15 border-b border-gray-200">
-        <a href="{{ route('manga.index') }}"
-            class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
-                All
-            </a>
-            
-        @foreach ($tags as $tag )
-            <a href="/manga/tags/{{ $tag }}"
-            class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
-                {{ $tag }}
-            </a>
-        @endforeach
+    <div class="py-15 border-b border-gray-200 flex items-center justify-center">
 
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:grid-cols-5 2xl:grid-cols-7">
+            <a href="{{ route('manga.index') }}"
+                class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
+                    All
+            </a>
+                
+            @foreach ($tags as $tag )
+                <a href="/manga/tags/{{ $tag }}"
+                class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
+                    {{ $tag }}
+                </a>
+            @endforeach
+        </div>
+</div>
         <div class="p-8">
             <form class="bg-white flex items-center rounded-full shadow-xl" action="{{ route('manga.index') }}" method="GET">
                 
@@ -29,23 +32,23 @@
                  id="search" type="text" placeholder="Search" name="search" value="{{ request()->query('search') }}">
                 
                 <div class="p-4">
-                    <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-23 h-12 flex items-center justify-center">
-                    search
+                    <button class="bg-blue-500 text-white rounded-full p-5 hover:bg-blue-400 focus:outline-none w-23 h-12 flex items-center justify-center">
+                        <i class="fas fa-search text-xl"></i>
                     </button>
                     </div>
                 </div>
             </form>
           </div>
     </div>
-</div>
+
 
 
 @forelse ($mangas as $manga)
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-        <div class="flex justify-end">
+        <div class="flex justify-center md:justify-end">
             <img class="h-80" src="{{ $manga->image }}">
         </div>
-        <div>
+        <div class="text-center md:text-left">
             <h2 class="text-gray-700 font-bold text-5xl pb-4">
                 {{ $manga->title }}
             </h2>

@@ -11,6 +11,7 @@ class MangaTagController extends Controller
     
     public function index(Tag $tag)
     {
+        //I chose paginate 2 as a test to see if its working
         $mangas = $tag->manga()->paginate(2);
         $tags = Tag::has('manga')->pluck('name', 'slug');
         

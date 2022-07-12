@@ -1,0 +1,28 @@
+EXPRESSION DES BESOINS
+
+Les visiteurs de l'application pourront naviguer à travers le site avec des limites 
+au niveau de l'interractivité avec les autres utilisateurs et des items. Ils pourront :
+
+            - Voir la liste des items.
+            - Filtrer un item par tags.
+            - Chercher un item avec une barre de recherche.
+            - Naviguer dans le forum et filtrer les discussion par sujet.
+            - S'inscrire.
+
+Les utilisateurs authentifiés bénéficieront d'autres fonctionnalités :
+
+            - Ecrire un commentaire sous les items. 
+            - Ecrire une nouvelle discussion dans le forum.
+            - Ecrire des réponses dans le forum.
+            - Supprimer / éditer leurs propre messages.
+            - Ajouter un item à leur liste de favori / Fini / à regarder plus tard.
+            - Accéder a leur espace utilisateur où ils pourront consulter leurs listes.
+
+Les utilisateurs connectés en tant qu'administrateur pourront eux gérer :
+
+            - Les utilisateurs (supprimer / modifier / ajouter).
+            - Les discussions (supprimer).
+            - Les commentaires (supprimer).
+            - les items (supprimer / modifier / ajouter).
+            - les sujets (supprimer / modifier / ajouter).
+            - les tags (supprimer / modifier / ajouter).

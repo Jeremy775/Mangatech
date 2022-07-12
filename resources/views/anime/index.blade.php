@@ -9,28 +9,47 @@
             </h1>
         </div>
 
-        <div class="py-15 border-b border-gray-200">
-            <a href="{{ route('anime.index') }}"
-                class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
-                    All
+        {{-- tag list --}}
+        <div class="py-15 border-b border-gray-200 flex items-center justify-center">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:grid-cols-5 2xl:grid-cols-7">
+                <a href="{{ route('anime.index') }}"
+                    class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
+                        All
                 </a>
-                
-            @foreach ($tags as $tag )
-                <a href="/anime/tags/{{ $tag}}"
-                class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
-                    {{ $tag }}
-                </a>
-            @endforeach
+                    
+                @foreach ($tags as $tag )
+                    <a href="/anime/tags/{{ $tag}}"
+                    class="uppercase border border-blue-500 text-blue-700 font-bold py-1 px-8 rounded-3xl ml-2">
+                        {{ $tag }}
+                    </a>
+                @endforeach
+            </div>
         </div>
+        {{-- end tag list --}}
+        <div class="p-8">
+            <form class="bg-white flex items-center rounded-full shadow-xl" action="{{ route('anime.index') }}" method="GET">
+                
+                <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none"
+                 id="search" type="text" placeholder="Search" name="search" value="{{ request()->query('search') }}">
+                
+                <div class="p-4">
+                    <button class="bg-blue-500 text-white rounded-full p-5 hover:bg-blue-400 focus:outline-none w-23 h-12 flex items-center justify-center">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </div>
 
-@foreach ($animes as $anime)
+@forelse ($animes as $anime)
 
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-        <div class="flex justify-end">
+        <div class="flex justify-center md:justify-end">
             <img class="h-80" src="{{ $anime->image }}">
         </div>
-        <div>
+        <div class="text-center md:text-left">
             <h2 class="text-gray-700 font-bold text-5xl pb-4">
                 {{ $anime->title }}
             </h2>
@@ -111,8 +130,12 @@
             </div>
         </div>
     </div>
-
-@endforeach
-
+@empty
+<p class="text-center pt-5 text-3xl">
+    No result for <strong>{{ request()->query('search') }}</strong>
+</p>
+@endforelse
+{{-- append -> search value effective in every pages of the pagination --}}
+{{-- {{ $animes->appends(['search' => request()->query('search')])->links() }} --}}
 
 @endsection

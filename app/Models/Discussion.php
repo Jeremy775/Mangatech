@@ -36,14 +36,16 @@ class Discussion extends Model
         return 'slug';
     }
 
-    //Filter discussions by channels
+    //Filtre les discussions par channels
     public function scopeFilterByChannels($builder)
     {
-     
+        //Si la requete est faite
         if (request()->query('channel')) {
+            //on cherche la channel spécifique que l'on veut filtrer 
             $channel = Channel::where('slug', request()->query('channel'))->first();
-
+            //Si la channel existe 
             if ($channel) {
+                // on filtre le builder dont l'id correspond a celui de la database
                 return $builder->where('channel_id', $channel->id);
             }
             return $builder;

@@ -19469,3 +19469,27 @@ process.umask = function() { return 0; };
 /******/ 	
 /******/ })()
 ;
+
+// dropdown navbar mobile menu
+$(document).ready(function () {
+  $(".nav-toggler").each(function (_, navToggler) {
+    var target = $(navToggler).data("target");
+    $(navToggler).on("click", function () {
+      $(target).animate({
+        height: "toggle",
+      });
+    });
+  });
+});
+
+//Comment section hidden reply form show
+function showReplyForm(commentId,user) {
+  var x = document.getElementById(`reply-form-${commentId}`);
+  var input = document.getElementById(`reply-form-${commentId}-text`);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    input.innerText=`@${user} `;
+  } else {
+    x.style.display = "none";
+  }
+};

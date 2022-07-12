@@ -25,11 +25,11 @@
 
 <div class="bg-gray-100 font-family-karla flex">
 
-    @include('partial.admin-sidebar')
+    @include('partial.admin.sidebar')
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         
-        @include('partial.admin-header')
+        @include('partial.admin.header')
     
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
@@ -117,4 +117,4 @@
 
 @endsection
 
-@include('partial.admin-footer')
+@include('partial.admin.footer')

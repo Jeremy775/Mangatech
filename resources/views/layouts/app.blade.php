@@ -18,32 +18,56 @@
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
         <header class="bg-blue-900 py-6">
-            <div class="container mx-auto flex justify-between items-center px-6">
-                <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                        {{ config('app.name', 'Mangatech') }}
-                    </a>
-                </div>
-                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
-                        <a class="no-underline hover:underline" href="{{ route('manga.index') }}">{{ __('Mangas') }}</a>
-                        <a class="no-underline hover:underline" href="{{ route('anime.index') }}">{{ __('Animes') }}</a>
-                        <a class="no-underline hover:underline" href="{{ route('discussions.index') }}">{{ __('Forum') }}</a>
-                    @guest  
-                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        @if (Route::has('register'))
-                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @endif
-                    @else
-                        <a href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
+            <div class="container mx-auto flex justify-between items-center px-6 flex-wrap">
+                
+                <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline inline-flex">
+                    {{ config('app.name', 'Mangatech') }}
+                </a>
+                
+                <button class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler" 
+                        data-target="#navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="space-x-4 text-gray-300 text-sm sm:text-base hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+                        id="navigation">
+                    <div class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
+                            <a class="no-underline hover:underline lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" 
+                                href="{{ route('manga.index') }}">{{ __('Mangas') }}
+                            </a>
 
-                        <a href="{{ route('logout') }}"
-                           class="no-underline hover:underline"
-                           onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                            {{ csrf_field() }}
-                        </form>
-                    @endguest
+                            <a class="no-underline hover:underline lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" 
+                                href="{{ route('anime.index') }}">{{ __('Animes') }}
+                            </a>
+
+                            <a class="no-underline hover:underline lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" 
+                                href="{{ route('discussions.index') }}">{{ __('Forum') }}
+                            </a>
+
+                        @guest  
+                            <a class="no-underline hover:underline lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" 
+                                href="{{ route('login') }}">{{ __('Login') }}
+                            </a>
+
+                            @if (Route::has('register'))
+                                <a class="no-underline hover:underline lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white" 
+                                    href="{{ route('register') }}">{{ __('Register') }}
+                                </a>
+                            @endif
+
+                            @else
+
+                            <a href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
+
+                            <a href="{{ route('logout') }}"
+                            class="no-underline hover:underline lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+                            onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                {{ csrf_field() }}
+                            </form>
+                        @endguest
+                    </div>    
                 </nav>
             </div>
         </header>
